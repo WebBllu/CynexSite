@@ -1,0 +1,121 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Rajdhani", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "Space Mono", ui-monospace, monospace;
+  --color-brand-dark: #050505;
+  --color-brand-surface: #0a0a0a;
+  --color-brand-red: #FF0000;
+  --color-brand-darkred: #8B0000;
+  --color-brand-fire: #FF4500;
+}
+
+@layer utilities {
+  .glass {
+    background: rgba(10, 10, 10, 0.7);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 0, 60, 0.2);
+  }
+  
+  .neon-glow {
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.6), inset 0 0 10px rgba(255, 0, 0, 0.3);
+  }
+
+  .text-gradient {
+    background: linear-gradient(to right, #FF0000, #FF4500);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .fire-text-gradient {
+    background: linear-gradient(to bottom, #FFFFFF, #FF0000 70%, #8B0000);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .cyber-grid {
+    background-image: 
+      linear-gradient(rgba(255, 0, 0, 0.07) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 0, 0, 0.07) 1px, transparent 1px);
+    background-size: 30px 30px;
+    background-position: center center;
+  }
+
+  .cyber-card {
+    border-radius: 40px 4px 40px 4px;
+  }
+
+  .cyber-button {
+    transform: skewX(-12deg);
+  }
+  
+  .cyber-button-content {
+    transform: skewX(12deg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+  }
+
+  .animate-fire-pulse {
+    animation: fire-pulse 4s infinite alternate ease-in-out;
+  }
+
+  @keyframes fire-pulse {
+    0% { opacity: 0.3; transform: scale(1) translate(-50%, -50%); }
+    100% { opacity: 0.6; transform: scale(1.1) translate(-50%, -50%); }
+  }
+
+  .glitch-text {
+    position: relative;
+  }
+  .glitch-text::before,
+  .glitch-text::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.8;
+  }
+  .glitch-text::before {
+    left: 2px;
+    text-shadow: -1px 0 #00ffff;
+    clip: rect(24px, 550px, 90px, 0);
+    animation: glitch-anim 3s infinite linear alternate-reverse;
+  }
+  .glitch-text::after {
+    left: -2px;
+    text-shadow: -1px 0 #FF003C;
+    clip: rect(85px, 550px, 140px, 0);
+    animation: glitch-anim 2s infinite linear alternate-reverse;
+  }
+
+  @keyframes glitch-anim {
+    0% { clip: rect(10px, 9999px, 86px, 0); }
+    5% { clip: rect(44px, 9999px, 14px, 0); }
+    10% { clip: rect(98px, 9999px, 64px, 0); }
+    15% { clip: rect(4px, 9999px, 50px, 0); }
+    20% { clip: rect(66px, 9999px, 49px, 0); }
+    25% { clip: rect(41px, 9999px, 86px, 0); }
+    30% { clip: rect(2px, 9999px, 78px, 0); }
+    35% { clip: rect(22px, 9999px, 3px, 0); }
+    40% { clip: rect(15px, 9999px, 42px, 0); }
+    45% { clip: rect(38px, 9999px, 9px, 0); }
+    50% { clip: rect(91px, 9999px, 91px, 0); }
+    55% { clip: rect(72px, 9999px, 11px, 0); }
+    60% { clip: rect(50px, 9999px, 5px, 0); }
+    65% { clip: rect(25px, 9999px, 88px, 0); }
+    70% { clip: rect(39px, 9999px, 63px, 0); }
+    75% { clip: rect(81px, 9999px, 85px, 0); }
+    80% { clip: rect(78px, 9999px, 48px, 0); }
+    85% { clip: rect(12px, 9999px, 98px, 0); }
+    90% { clip: rect(34px, 9999px, 19px, 0); }
+    95% { clip: rect(80px, 9999px, 15px, 0); }
+    100% { clip: rect(31px, 9999px, 95px, 0); }
+  }
+}

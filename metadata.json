@@ -1,0 +1,8 @@
+{
+  "name": "CynexCode - Desenvolvimento de Sites",
+  "description": "Transformamos ideias em sites modernos que impulsionam o seu negócio. Especialistas em Landing Pages e Sites Institucionais.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
