@@ -10,6 +10,94 @@
   --color-brand-fire: #FF4500;
 }
 
+html {
+  scroll-padding-top: 90px;
+}
+
+@layer components {
+  .section-tag {
+    display: inline-block;
+    margin-bottom: 1rem;
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--color-brand-red);
+  }
+
+  .step-label {
+    margin-bottom: 0.75rem;
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #9ca3af;
+  }
+
+  .chip {
+    padding: 0.5rem 0.9rem;
+    border-radius: 9999px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(0, 0, 0, 0.4);
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: #d1d5db;
+    transition: all 0.2s ease;
+  }
+  .chip:hover {
+    border-color: rgba(255, 0, 0, 0.5);
+    color: #fff;
+  }
+  .chip-active {
+    border-color: var(--color-brand-red);
+    background: rgba(255, 0, 0, 0.18);
+    color: #fff;
+    box-shadow: 0 0 18px rgba(255, 0, 0, 0.25);
+  }
+}
+
+@layer utilities {
+  .mask-fade-x {
+    -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  }
+
+  .animate-marquee {
+    animation: marquee 35s linear infinite;
+  }
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  .animate-blink {
+    animation: blink 1s step-end infinite;
+  }
+  @keyframes blink {
+    50% { opacity: 0; }
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee,
+  .animate-float,
+  .animate-fire-pulse,
+  .glitch-text::before,
+  .glitch-text::after {
+    animation: none !important;
+  }
+}
+
 @layer utilities {
   .glass {
     background: rgba(10, 10, 10, 0.7);
